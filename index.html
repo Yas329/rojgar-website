@@ -115,20 +115,29 @@ nav a:hover{
 /* CATEGORY */
 
 .category-bar{
-    text-align:center;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
     background:#0d47a1;
-    padding:10px;
+    padding:15px;
     margin:10px 20px;
-    border-radius:6px;
+    border-radius:10px;
 }
 
 .category-bar a{
     color:white;
-    margin:5px;
-    padding:6px 10px;
-    background:#1565c0;
-    border-radius:4px;
+    background:#1976d2;
+    padding:10px 16px;
+    border-radius:8px;
     text-decoration:none;
+    font-weight:bold;
+    white-space:nowrap;
+    transition:0.3s;
+}
+.category-bar a:hover{
+    background:#ffcc00;
+    color:black;
 }
 
 /* MAIN CONTAINER */
