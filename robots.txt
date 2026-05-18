@@ -1,4 +1,10 @@
 User-agent: *
+
+# Allow all important pages
 Allow: /
 
+# Sitemap
 Sitemap: https://latestrojgar.in/sitemap.xml
+
+# Optional crawl delay
+Crawl-delay: 5
