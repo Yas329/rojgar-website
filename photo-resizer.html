@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Photo Resizer Tool - Latest Rojgar</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f4f4;
+    margin:0;
+    padding:20px;
+    text-align:center;
+}
+
+.container{
+    max-width:500px;
+    margin:auto;
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+h1{
+    color:#0d6efd;
+}
+
+input{
+    margin:10px;
+    padding:10px;
+    width:90%;
+}
+
+button{
+    background:#0d6efd;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:5px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+button:hover{
+    background:#084298;
+}
+
+img{
+    max-width:100%;
+    margin-top:20px;
+    border-radius:10px;
+}
+
+.download-btn{
+    display:none;
+    margin-top:20px;
+    text-decoration:none;
+    background:green;
+    color:white;
+    padding:12px 20px;
+    border-radius:5px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Photo Resizer Tool</h1>
+
+<input type="file" id="upload" accept="image/*">
+
+<input type="number" id="width" placeholder="Enter Width (px)">
+
+<input type="number" id="height" placeholder="Enter Height (px)">
+
+<br>
+
+<button onclick="resizeImage()">Resize Photo</button>
+
+<br>
+
+<canvas id="canvas" style="display:none;"></canvas>
+
+<img id="preview">
+
+<br>
+
+<a id="download" class="download-btn">Download Image</a>
+
+</div>
+
+<script>
+
+function resizeImage(){
+
+    const file = document.getElementById("upload").files[0];
+
+    const width = document.getElementById("width").value;
+
+    const height = document.getElementById("height").value;
+
+    if(!file){
+        alert("Please upload image");
+        return;
+    }
+
+    const reader = new FileReader();
+
+    reader.onload = function(e){
+
+        const img = new Image();
+
+        img.onload = function(){
+
+            const canvas = document.getElementById("canvas");
+            const ctx = canvas.getContext("2d");
+
+            canvas.width = width;
+            canvas.height = height;
+
+            ctx.drawImage(img, 0, 0, width, height);
+
+            const resizedImage = canvas.toDataURL("image/jpeg", 0.9);
+
+            document.getElementById("preview").src = resizedImage;
+
+            const downloadBtn = document.getElementById("download");
+
+            downloadBtn.href = resizedImage;
+            downloadBtn.download = "resized-image.jpg";
+
+            downloadBtn.style.display = "inline-block";
+        }
+
+        img.src = e.target.result;
+    }
+
+    reader.readAsDataURL(file);
+}
+
+</script>
+
+</body>
+</html>

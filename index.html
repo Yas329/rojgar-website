@@ -88,16 +88,74 @@ nav a:hover{
 
 /* SEARCH */
 
+/* SEARCH WRAPPER */
+
+/* SEARCH SECTION */
+
+.search-wrapper{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap: 35px;
+    margin:30px;
+    flex-wrap:wrap;
+}
+
 .search-box{
-    text-align:center;
-    margin:15px;
+    flex:1;
+    max-width:700px;
 }
 
 .search-box input{
-    width:60%;
-    padding:10px;
-    border-radius:5px;
+    width:100%;
+    padding:12px;
+    border-radius:6px;
     border:1px solid #ccc;
+    font-size:16px;
+}
+
+/* PHOTO RESIZER BUTTON */
+
+.photo-tool-btn{
+    background:#ff6f00;
+    color:white;
+    text-decoration:none;
+    padding:12px 18px;
+    border-radius:6px;
+    font-weight:bold;
+    transition:0.3s;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    white-space:nowrap;
+}
+
+.photo-tool-btn:hover{
+    background:#e65100;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.search-wrapper{
+    flex-direction:column;
+}
+
+.search-box{
+    width:100%;
+    max-width:100%;
+}
+
+.search-box input{
+    width:100%;
+}
+
+.photo-tool-btn{
+    width:100%;
+    justify-content:center;
+}
+
 }
 
 /* HEADLINE */
@@ -464,12 +522,22 @@ nav a{
 
 <!-- SEARCH -->
 
+<!-- SEARCH -->
+
+<div class="search-wrapper">
+
 <div class="search-box">
 
 <input type="text"
 id="searchInput"
 placeholder="Search jobs..."
 onkeyup="searchFunction()">
+
+</div>
+
+<a href="photo-resizer.html" class="photo-tool-btn">
+<i class="fa-solid fa-image"></i> Photo Resizer
+</a>
 
 </div>
 
