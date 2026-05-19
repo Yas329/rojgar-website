@@ -1,200 +1,159 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- Home Page -->
-  <url>
-    <loc>https://latestrojgar.in/</loc>
-    <lastmod>2026-05-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-  </url>
+<urlset
+xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- Main Navigation -->
-  <url>
-    <loc>https://latestrojgar.in/ssc-jobs.html</loc>
-    <lastmod>2026-05-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
+    <url>
+        <loc>https://latestrojgar.in/</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+    </url>
 
-  <url>
-    <loc>https://latestrojgar.in/results.html</loc>
-    <lastmod>2026-05-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
+    <url>
+        <loc>https://latestrojgar.in/latest-jobs.html</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.9</priority>
+    </url>
 
-  <url>
-    <loc>https://latestrojgar.in/admit-card.html</loc>
-    <lastmod>2026-05-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
+    <url>
+        <loc>https://latestrojgar.in/results.html</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.9</priority>
+    </url>
 
-  <url>
-    <loc>https://latestrojgar.in/answer-key.html</loc>
-    <lastmod>2026-05-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
+    <url>
+        <loc>https://latestrojgar.in/admit-card.html</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.9</priority>
+    </url>
 
-  <url>
-    <loc>https://latestrojgar.in/sarkari-yojana.html</loc>
-    <lastmod>2026-05-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
+    <url>
+        <loc>https://latestrojgar.in/answer-key.html</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.9</priority>
+    </url>
 
-  <!-- Category Pages -->
-  <url>
-    <loc>https://latestrojgar.in/bank-jobs.html</loc>
-    <lastmod>2026-05-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
+    <url>
+        <loc>https://latestrojgar.in/sarkari-yojana.html</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.9</priority>
+    </url>
 
-  <url>
-    <loc>https://latestrojgar.in/railway-jobs.html</loc>
-    <lastmod>2026-05-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
+    <!-- CATEGORY PAGES -->
 
-  <url>
-    <loc>https://latestrojgar.in/UPSC-jobs.html</loc>
-    <lastmod>2026-05-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
+    <url>
+        <loc>https://latestrojgar.in/ssc-jobs.html</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
 
-  <url>
-    <loc>https://latestrojgar.in/Defence-jobs.html</loc>
-    <lastmod>2026-05-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
+    <url>
+        <loc>https://latestrojgar.in/bank-jobs.html</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
 
-  <url>
-    <loc>https://latestrojgar.in/Police-jobs.html</loc>
-    <lastmod>2026-05-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
+    <url>
+        <loc>https://latestrojgar.in/railway-jobs.html</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
 
-  <url>
-    <loc>https://latestrojgar.in/Teaching-jobs.html</loc>
-    <lastmod>2026-05-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
+    <url>
+        <loc>https://latestrojgar.in/upsc-jobs.html</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
 
-  <url>
-    <loc>https://latestrojgar.in/PSU-jobs.html</loc>
-    <lastmod>2026-05-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
+    <url>
+        <loc>https://latestrojgar.in/defence-jobs.html</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
 
-  <url>
-    <loc>https://latestrojgar.in/State-jobs.html</loc>
-    <lastmod>2026-05-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
+    <url>
+        <loc>https://latestrojgar.in/police-jobs.html</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
 
-  <url>
-    <loc>https://latestrojgar.in/Judiciary-jobs.html</loc>
-    <lastmod>2026-05-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
+    <url>
+        <loc>https://latestrojgar.in/teaching-jobs.html</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
 
-  <url>
-    <loc>https://latestrojgar.in/Medical-jobs.html</loc>
-    <lastmod>2026-05-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
+    <url>
+        <loc>https://latestrojgar.in/psu-jobs.html</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
 
-  <!-- Job Pages -->
-  <url>
-    <loc>https://latestrojgar.in/ssc.html</loc>
-    <lastmod>2026-05-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
+    <url>
+        <loc>https://latestrojgar.in/state-jobs.html</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
 
-  <url>
-    <loc>https://latestrojgar.in/up-police-vacancy-2026.html</loc>
-    <lastmod>2026-05-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
+    <url>
+        <loc>https://latestrojgar.in/judiciary-jobs.html</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
 
-  <url>
-    <loc>https://latestrojgar.in/railway-result-2026.html</loc>
-    <lastmod>2026-05-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
+    <url>
+        <loc>https://latestrojgar.in/medical-jobs.html</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
 
-  <url>
-    <loc>https://latestrojgar.in/Alp.html</loc>
-    <lastmod>2026-05-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
+    <!-- IMPORTANT JOB PAGES -->
 
-  <!-- Tools -->
-  <url>
-    <loc>https://latestrojgar.in/photo-resizer.html</loc>
-    <lastmod>2026-05-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
+    <url>
+        <loc>https://latestrojgar.in/Alp.html</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
 
-  <!-- Preparation Pages -->
-  <url>
-    <loc>https://latestrojgar.in/syllabus.html</loc>
-    <lastmod>2026-05-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
+    <url>
+        <loc>https://latestrojgar.in/up-police-vacancy-2026.html</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
 
-  <url>
-    <loc>https://latestrojgar.in/Tests.html</loc>
-    <lastmod>2026-05-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
+    <url>
+        <loc>https://latestrojgar.in/ssc.html</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
 
-  <url>
-    <loc>https://latestrojgar.in/Papers.html</loc>
-    <lastmod>2026-05-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
+    <!-- TOOL PAGE -->
 
-  <!-- Important Info -->
-  <url>
-    <loc>https://latestrojgar.in/Agelimit.html</loc>
-    <lastmod>2026-05-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <url>
-    <loc>https://latestrojgar.in/Qualification.html</loc>
-    <lastmod>2026-05-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <url>
-    <loc>https://latestrojgar.in/selectionprocess.html</loc>
-    <lastmod>2026-05-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
+    <url>
+        <loc>https://latestrojgar.in/photo-resizer.html</loc>
+        <lastmod>2026-05-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
 
 </urlset>

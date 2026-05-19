@@ -1,10 +1,42 @@
 User-agent: *
-
-# Allow all important pages
 Allow: /
 
 # Sitemap
 Sitemap: https://latestrojgar.in/sitemap.xml
 
-# Optional crawl delay
+# Important Pages
+Allow: /index.html
+Allow: /latest-jobs.html
+Allow: /results.html
+Allow: /admit-card.html
+Allow: /answer-key.html
+Allow: /sarkari-yojana.html
+
+# Category Pages
+Allow: /ssc-jobs.html
+Allow: /bank-jobs.html
+Allow: /railway-jobs.html
+Allow: /upsc-jobs.html
+Allow: /defence-jobs.html
+Allow: /police-jobs.html
+Allow: /teaching-jobs.html
+Allow: /psu-jobs.html
+Allow: /state-jobs.html
+Allow: /judiciary-jobs.html
+Allow: /medical-jobs.html
+
+# Job Pages
+Allow: /Alp.html
+Allow: /ssc.html
+Allow: /up-police-vacancy-2026.html
+
+# Tool Pages
+Allow: /photo-resizer.html
+
+# Block System Files
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /private/
+
+# Crawl Delay
 Crawl-delay: 5
