@@ -13,6 +13,10 @@
 <meta property="og:description" content="Get latest government job notifications, admit cards, results, railway jobs, SSC, UPSC and recruitment updates in one place.">
 <meta property="og:url" content="https://latestrojgar.in">
 <meta property="og:type" content="website">
+<meta name="theme-color" content="#0d47a1">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="apple-mobile-web-app-capable" content="yes">
 <!--Google Analytics-->
 <!-- Google tag (gtag.js) -->
  
@@ -29,8 +33,8 @@
 <title>LatestRojgar.in | Latest Government Jobs, Results, Admit Card & Sarkari Yojana</title>
 
 
-<link rel="icon" href="new.png">
-
+<link rel="icon" type="image/png" href="new.png">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com">
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -38,6 +42,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 <style>
 
 /* BODY */
+html{
+    scroll-behavior:smooth;
+}
 
 body{
     font-family:Arial, sans-serif;
@@ -70,6 +77,9 @@ body{
 /* NAVBAR */
 
 nav{
+    position: sticky;
+    top:0;
+    z-index:1000;
     background:#1565c0;
     text-align:center;
 }
@@ -80,10 +90,14 @@ nav a{
     display:inline-block;
     text-decoration:none;
     font-weight:bold;
+    transition:all 0.3s ease;
+    border-radius:6px;
 }
 
 nav a:hover{
     background:#0d47a1;
+    transform:translateY(-2px);
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
 }
 
 /* SEARCH */
@@ -112,6 +126,12 @@ nav a:hover{
     border-radius:6px;
     border:1px solid #ccc;
     font-size:16px;
+    transition:all 0.3s ease;
+}
+.search-box input:focus{
+    outline:none;
+    border-color:#1565c0;
+    box-shadow:0 0 10px rgba(21,101,192,0.3);
 }
 
 /* PHOTO RESIZER BUTTON */
@@ -123,7 +143,7 @@ nav a:hover{
     padding:12px 18px;
     border-radius:6px;
     font-weight:bold;
-    transition:0.3s;
+    transition:all 0.3s ease;
     display:flex;
     align-items:center;
     gap:8px;
@@ -132,6 +152,8 @@ nav a:hover{
 
 .photo-tool-btn:hover{
     background:#e65100;
+    transform:translateY(-3px);
+    box-shadow:0 8px 20px rgba(255,111,0,0.4);
 }
 
 /* MOBILE */
@@ -197,11 +219,13 @@ nav a:hover{
     text-decoration:none;
     font-weight:bold;
     white-space:nowrap;
-    transition:0.3s;
+    transition:all 0.3s ease;
 }
 .category-bar a:hover{
     background:#ffcc00;
     color:black;
+    transform:translateY(-3px) scale(1.03);
+    box-shadow:0 6px 15px rgba(0,0,0,0.2);
 }
 
 /* MAIN CONTAINER */
@@ -218,6 +242,11 @@ nav a:hover{
     padding:15px;
     border-radius:8px;
     box-shadow:0 2px 8px rgba(0,0,0,0.1);
+    transition:all 0.3s ease;
+}
+.column:hover{
+    transform:translateY(-5px);
+    box-shadow:0 8px 25px rgba(0,0,0,0.15);
 }
 
 .column h2{
@@ -236,8 +265,10 @@ nav a:hover{
 }
 
 .column ul li{
-    padding:12px 5px;
+    padding:12px 10px;
     border-bottom:1px solid #ddd;
+    transition:all 0.25s ease;
+    border-radius:6px;
 }
 
 .column ul li:last-child{
@@ -251,7 +282,8 @@ nav a:hover{
 }
 
 .column ul li:hover{
-    background:#f1f1f1;
+    background:#eef5ff;
+    transform:translateX(5px);
 }
 
 /* JOB DATE */
@@ -286,14 +318,17 @@ nav a:hover{
     background:#1565c0;
     color:white;
     border:none;
-    padding:8px 15px;
-    border-radius:5px;
+    padding:10px 18px;
+    border-radius:6px;
     cursor:pointer;
     font-weight:bold;
+    transition:all 0.3s ease;
 }
 
 .view-more button:hover{
     background:#0d47a1;
+    transform:translateY(-2px);
+    box-shadow:0 6px 15px rgba(0,0,0,0.2);
 }
 
 /* HIDDEN */
@@ -337,11 +372,16 @@ nav a:hover{
 }
 
 .about-box{
-    background:#f5f5f5;
+   background:#f5f5f5;
     padding:25px;
     border-radius:10px;
     text-align:center;
     box-shadow:0 2px 8px rgba(0,0,0,0.08);
+    transition:all 0.3s ease;
+}
+.about-box:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
 }
 
 .about-box h3{
@@ -400,19 +440,19 @@ nav a:hover{
 
 .footer-box h3{
     border-bottom:2px solid orange;
-    padding-bottom:5px;
+    padding-bottom:8px;
+    margin-bottom:20px;
+    display:inline-block;
 }
 
-.footer-box ul{
-    list-style:none;
-    padding:0;
+/* FOOTER TEXT */
+
+.footer-box p{
+    line-height:1.8;
+    color:#e0e0e0;
 }
 
-.footer-box ul li{
-    margin:6px 0;
-}
-
-/* SOCIAL */
+/* SOCIAL LINKS */
 
 .social-links a{
     display:flex;
@@ -420,30 +460,47 @@ nav a:hover{
     gap:10px;
     color:white;
     text-decoration:none;
-    margin:6px 0;
+    margin:12px 0;
+    transition:all 0.3s ease;
+    width:fit-content;
 }
 
 .social-links a:hover{
-    color:yellow;
+    color:#ffcc00;
+    transform:translateX(6px);
+    text-shadow:0 0 8px rgba(255,204,0,0.5);
+}
+
+/* QUICK LINKS */
+
+.menu-links p{
+    margin:12px 0;
 }
 
 .menu-links a{
-    color: white;
-    text-decoration: none;
-    transition: 0.3s;
-}
-.menu-links a:hover{
-    color: yellow;
+    color:white;
+    text-decoration:none;
+    transition:all 0.3s ease;
+    display:inline-block;
+    font-weight:500;
 }
 
+.menu-links a:hover{
+    color:#ffcc00;
+    transform:translateX(6px);
+    text-shadow:0 0 8px rgba(255,204,0,0.5);
+}
+
+/* INFO LINKS */
+
 .info-links a{
-    color: white;
-    text-decoration: none;
-    transition: 0.3s;
+    color:white;
+    text-decoration:none;
+    transition:all 0.3s ease;
 }
 
 .info-links a:hover{
-    color: yellow;
+    color:#ffcc00;
 }
 
 /* COPYRIGHT */
@@ -452,7 +509,9 @@ nav a:hover{
     background:#0d47a1;
     text-align:center;
     color:white;
-    padding:10px;
+    padding:14px;
+    font-size:15px;
+    letter-spacing:0.5px;
 }
 
 /* MOBILE */
@@ -474,6 +533,14 @@ nav a:hover{
 nav a{
     display:block;
     border-bottom:1px solid rgba(255,255,255,0.2);
+}
+
+.footer-box{
+    margin-bottom:25px;
+}
+
+.footer-box h3{
+    margin-bottom:15px;
 }
 
 }
@@ -502,7 +569,7 @@ nav a{
 
 <div class="logo-section">
 
-<img src="new.png" alt="LatestRojgar Logo">
+<img src="new.png" alt="Latest Rojgar Government Job Logo" width="150" height="150">
 
 <div class="site-text">
 <h1>LatestRojgar.in</h1>
@@ -537,6 +604,7 @@ nav a{
 <input type="text"
 id="searchInput"
 placeholder="Search jobs..."
+aria-label="Search Government Jobs"
 onkeyup="searchFunction()">
 
 </div>
@@ -1076,23 +1144,51 @@ Candidates are advised to verify all information from the official website befor
 </section>
 
 <!-- FOOTER -->
+ 
+
+<!-- FOOTER -->
 
 <div class="footer-top">
 
 <div class="footer-container">
+
+<!-- ABOUT -->
 
 <div class="footer-box">
 
 <h3>About</h3>
 
 <p>
-LatestRojgar.in is a trusted platform that provides the latest government job notifications, admit cards, exam results, answer keys, admissions, and Sarkari Yojana updates across India.
+LatestRojgar.in is a leading educational and job update platform that provides the latest government job notifications, admit cards, exam results, answer keys, admissions, and Sarkari Yojana updates across India.
 
-We help students and job seekers stay updated with Railway, SSC, UPSC, Banking, Police, Defence, Teaching, Judiciary, Medical, and State Government recruitment notifications in one place.
+Our mission is to help students and job seekers quickly access accurate and timely information related to SSC, Railway, UPSC, Banking, Police, Defence, Teaching, Judiciary, Medical, PSU, and State Government recruitments in one place through a simple and mobile-friendly experience.
 </p>
 
 </div>
 
+<!-- QUICK LINKS -->
+
+<div class="footer-box">
+
+<h3>Quick Links</h3>
+
+<div class="menu-links">
+
+<p><a href="about.html">About Us</a></p>
+
+<p><a href="contact.html">Contact Us</a></p>
+
+<p><a href="privacy-policy.html">Privacy Policy</a></p>
+
+<p><a href="disclaimer.html">Disclaimer</a></p>
+
+<p><a href="terms.html">Terms & Conditions</a></p>
+
+</div>
+
+</div>
+
+<!-- FOLLOW US -->
 
 <div class="footer-box">
 
@@ -1119,8 +1215,6 @@ We help students and job seekers stay updated with Railway, SSC, UPSC, Banking, 
 <a href="#">
 <i class="fab fa-telegram"></i> Telegram
 </a>
-
-
 
 </div>
 
@@ -1157,7 +1251,7 @@ item.innerText.toLowerCase();
 
 item.style.display =
 text.includes(input)
-? "block"
+? "list-item"
 : "none";
 
 });
