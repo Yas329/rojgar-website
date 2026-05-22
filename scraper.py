@@ -65,6 +65,7 @@ with sync_playwright() as p:
     {"name": "CRPF", "url": "https://rect.crpf.gov.in"},
     {"name": "CISF", "url": "https://cisfrectt.cisf.gov.in"},
     {"name": "ITBP", "url": "https://recruitment.itbpolice.nic.in"},
+    
 
     # Police
     {"name": "UP Police", "url": "https://uppbpb.gov.in"},
@@ -126,7 +127,7 @@ with sync_playwright() as p:
     keywords = [
         "recruitment", "vacancy", "notification", "exam",
         "result", "admit", "apply", "job", "career",
-        "answer key", "final result", "online form"
+        "answer key", "final result", "online form" , "AFCAT"
     ]
 
     bad_titles = [
