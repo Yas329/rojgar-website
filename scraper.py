@@ -45,7 +45,7 @@ with sync_playwright() as p:
     websites = [
         # UPSC / SSC
     {"name": "SSC", "url": "https://ssc.gov.in"},
-    {"name": "UPSC", "url": "https://www.upsc.gov.in"},
+    {"name": "UPSC", "url": "https://www.upsconline.nic.in"},
 
     # Banking
     {"name": "IBPS", "url": "https://www.ibps.in"},
