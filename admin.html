@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>LatestRojgar Admin</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f3f6fb;color:#1e293b}
+.shell{display:grid;grid-template-columns:250px 1fr;min-height:100vh}.side{background:linear-gradient(180deg,#0d47a1,#0f172a);color:#fff;padding:24px 16px}
+.brand{font-size:24px;font-weight:800;margin-bottom:25px}.brand small{display:block;font-size:12px;font-weight:400;opacity:.8}
+.nav{padding:12px 14px;border-radius:10px;margin:6px 0;cursor:pointer}.nav:hover,.nav.active{background:rgba(255,255,255,.14)}
+.main{min-width:0}.top{height:70px;background:#fff;padding:0 25px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 10px #0000000d}
+.content{padding:25px}.panel{background:#fff;border-radius:16px;padding:22px;margin-bottom:22px;box-shadow:0 5px 18px #0000000d}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.full{grid-column:1/-1}
+label{font-weight:700;font-size:13px;display:block;margin-bottom:6px;color:#475569}
+input,select,textarea{width:100%;padding:12px;border:1px solid #dbe4ef;border-radius:9px;font:inherit}textarea{min-height:110px;resize:vertical}
+h3{color:#0d47a1;margin-top:0}.sectionTitle{border-bottom:1px solid #e2e8f0;padding-bottom:10px;margin:25px 0 15px}
+.btn{border:0;padding:11px 16px;border-radius:9px;font-weight:700;cursor:pointer}.primary{background:#1565c0;color:#fff}.secondary{background:#eaf2ff;color:#0d47a1}.danger{background:#fee2e2;color:#b91c1c}
+.actions{display:flex;gap:10px;justify-content:flex-end;margin-top:20px;flex-wrap:wrap}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.stat{background:#fff;border-radius:14px;padding:20px;box-shadow:0 5px 18px #0000000d}.stat b{font-size:30px;color:#0d47a1;display:block}
+table{width:100%;border-collapse:collapse}th,td{padding:11px;border-bottom:1px solid #e2e8f0;text-align:left;font-size:14px}.table{overflow:auto}
+.hidden{display:none}.login{max-width:480px;margin:60px auto}.notice{padding:12px;border-radius:9px;background:#fff7d6;margin-top:15px}.ok{background:#dcfce7}.error{background:#fee2e2}
+@media(max-width:800px){.shell{grid-template-columns:1fr}.grid,.stats{grid-template-columns:1fr}.full{grid-column:auto}.content{padding:15px}}
+</style>
+</head>
+<body>
+<div id="loginScreen" class="login panel">
+<h3>LatestRojgar Admin Login</h3>
+<p>Enter the Admin API Token configured in Vercel.</p>
+<label>Admin Token</label><input id="tokenInput" type="password">
+<div class="actions"><button class="btn primary" id="loginBtn">Open Admin</button></div><div id="loginMsg"></div>
+</div>
+
+<div id="app" class="shell hidden">
+<aside class="side">
+<div class="brand">LatestRojgar<small>Admin Panel</small></div>
+<div class="nav active" data-page="dashboard">🏠 Dashboard</div>
+<div class="nav" data-page="add">➕ Add Job</div>
+<div class="nav" data-page="jobs">💼 All Jobs</div>
+<div class="nav" id="logoutBtn">🚪 Logout</div>
+</aside>
+<main class="main">
+<div class="top"><strong id="pageTitle">Dashboard</strong><span>latestrojgar.in</span></div>
+<div class="content">
+<section id="dashboard" class="page"><div class="stats">
+<div class="stat">Total Jobs<b id="total">0</b></div><div class="stat">Published<b id="published">0</b></div><div class="stat">Drafts<b id="drafts">0</b></div>
+</div></section>
+
+<section id="add" class="page hidden"><div class="panel">
+<h3 id="formHeading">Add New Government Job</h3>
+<form id="jobForm"><input type="hidden" id="jobId">
+<h4 class="sectionTitle">Basic Details</h4>
+<div class="grid">
+<div class="full"><label>Job Title *</label><input id="title" required></div>
+<div><label>Organization / Department</label><input id="department"></div>
+<div><label>Advertisement Number</label><input id="advertisement_number"></div>
+<div><label>Post Name</label><input id="post_name"></div>
+<div><label>Total Posts</label><input id="total_posts" type="number"></div>
+<div><label>Category</label><select id="category"><option>SSC</option><option>Railway</option><option>Bank</option><option>UPSC</option><option>Defence</option><option>Police</option><option>Teaching</option><option>PSU</option><option>State Govt</option><option>Judiciary</option><option>Medical</option><option>Other</option></select></div>
+<div><label>Location</label><input id="location" placeholder="All India"></div>
+<div><label>Status</label><select id="status"><option>Published</option><option>Draft</option></select></div>
+</div>
+
+<h4 class="sectionTitle">Important Dates</h4>
+<div class="grid">
+<div><label>Application Start</label><input id="application_start" type="date"></div>
+<div><label>Last Date</label><input id="application_end" type="date"></div>
+<div><label>Fee Payment Last Date</label><input id="fee_last_date" type="date"></div>
+<div><label>Correction Date</label><input id="correction_date" type="date"></div>
+<div><label>Exam Date</label><input id="exam_date"></div><div><label>Admit Card Date</label><input id="admit_card_date"></div>
+<div><label>Result Date</label><input id="result_date"></div>
+</div>
+
+<h4 class="sectionTitle">Application Fee</h4>
+<div class="grid">
+<div><label>General</label><input id="general_fee"></div><div><label>OBC / EWS</label><input id="obc_ews_fee"></div>
+<div><label>SC / ST</label><input id="sc_st_fee"></div><div><label>Female</label><input id="female_fee"></div>
+<div class="full"><label>Payment Method</label><input id="payment_method"></div>
+</div>
+
+<h4 class="sectionTitle">Age & Eligibility</h4>
+<div class="grid">
+<div><label>Minimum Age</label><input id="minimum_age" type="number"></div><div><label>Maximum Age</label><input id="maximum_age" type="number"></div>
+<div class="full"><label>Age Relaxation</label><textarea id="age_relaxation"></textarea></div>
+<div class="full"><label>Qualification</label><textarea id="qualification"></textarea></div>
+<div class="full"><label>Experience</label><textarea id="experience"></textarea></div>
+<div class="full"><label>Other Conditions</label><textarea id="other_conditions"></textarea></div>
+<div class="full"><label>Vacancy Details (JSON)</label><textarea id="vacancy_details" placeholder='[{"post":"Assistant","category":"UR","posts":10}]'></textarea></div>
+</div>
+
+<h4 class="sectionTitle">Full Description</h4><textarea id="description" style="min-height:240px"></textarea>
+
+<h4 class="sectionTitle">Important Links</h4>
+<div class="grid">
+<div><label>Apply Online</label><input id="apply_url" type="url"></div><div><label>Notification PDF</label><input id="notification_url" type="url"></div>
+<div><label>Official Website</label><input id="official_url" type="url"></div><div><label>Admit Card</label><input id="admit_card_url" type="url"></div>
+<div><label>Result</label><input id="result_url" type="url"></div><div><label>Answer Key</label><input id="answer_key_url" type="url"></div>
+</div>
+
+<h4 class="sectionTitle">SEO</h4>
+<div class="grid">
+<div class="full"><label>URL Slug *</label><input id="slug" required></div>
+<div class="full"><label>SEO Title</label><input id="seo_title" maxlength="70"></div>
+<div class="full"><label>Meta Description</label><textarea id="meta_description" maxlength="170"></textarea></div>
+<div class="full"><label>Keywords</label><input id="keywords"></div>
+</div>
+
+<div class="actions"><button type="button" class="btn secondary" id="clearBtn">Clear</button><button type="submit" class="btn primary">Save Job</button></div>
+<div id="formMsg"></div>
+</form></div></section>
+
+<section id="jobs" class="page hidden"><div class="panel"><h3>All Jobs</h3><div class="table"><table>
+<thead><tr><th>Title</th><th>Category</th><th>Last Date</th><th>Status</th><th>Actions</th></tr></thead><tbody id="jobsBody"></tbody>
+</table></div></div></section>
+</div>
+</main>
+</div>
+
+<script>
+const fields=["title","department","advertisement_number","post_name","total_posts","category","location","status","application_start","application_end","fee_last_date","correction_date","exam_date","admit_card_date","result_date","general_fee","obc_ews_fee","sc_st_fee","female_fee","payment_method","minimum_age","maximum_age","age_relaxation","qualification","experience","other_conditions","description","apply_url","notification_url","official_url","admit_card_url","result_url","answer_key_url","slug","seo_title","meta_description","keywords"];
+let token=sessionStorage.getItem("lr_admin_token")||"",jobs=[];
+const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
+const slugify=s=>s.toLowerCase().trim().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"");
+async function api(url,opts={}){const r=await fetch(url,{...opts,headers:{"Content-Type":"application/json","Authorization":"Bearer "+token,...(opts.headers||{})}});if(!r.ok){let x={};try{x=await r.json()}catch{}throw new Error(x.error||("Request failed: "+r.status))}if(r.status===204)return null;return r.json()}
+function showApp(){loginScreen.classList.add("hidden");app.classList.remove("hidden");loadJobs()}
+function showPage(id){document.querySelectorAll(".page").forEach(x=>x.classList.add("hidden"));document.getElementById(id).classList.remove("hidden");document.querySelectorAll(".nav[data-page]").forEach(x=>x.classList.toggle("active",x.dataset.page===id));pageTitle.textContent=id==="add"?"Add Job":id==="jobs"?"All Jobs":"Dashboard"}
+async function loadJobs(){jobs=await api("/api/jobs?admin=1&limit=200");total.textContent=jobs.length;published.textContent=jobs.filter(x=>x.status==="Published").length;drafts.textContent=jobs.filter(x=>x.status==="Draft").length;jobsBody.innerHTML=jobs.map(j=>`<tr><td><strong>${esc(j.title)}</strong></td><td>${esc(j.category||"")}</td><td>${esc(j.application_end||"-")}</td><td>${esc(j.status)}</td><td><button class="btn secondary" onclick="editJob('${j.id}')">Edit</button> <button class="btn danger" onclick="deleteJob('${j.id}')">Delete</button></td></tr>`).join("")||'<tr><td colspan="5">No jobs yet.</td></tr>'}
+function clearForm(){jobForm.reset();jobId.value="";formHeading.textContent="Add New Government Job";formMsg.innerHTML="";slug.dataset.manual=""}
+function editJob(id){const j=jobs.find(x=>x.id===id);if(!j)return;jobId.value=j.id;fields.forEach(f=>{const el=document.getElementById(f);if(f==="vacancy_details")el.value=JSON.stringify(j[f]||[],null,2);else el.value=j[f]??""});formHeading.textContent="Edit Job";showPage("add")}
+async function deleteJob(id){if(!confirm("Delete this job?"))return;await api("/api/jobs?id="+encodeURIComponent(id),{method:"DELETE"});await loadJobs()}
+loginBtn.onclick=async()=>{token=tokenInput.value.trim();try{await api("/api/jobs?admin=1&limit=1");sessionStorage.setItem("lr_admin_token",token);showApp()}catch(e){loginMsg.innerHTML='<div class="notice error">'+esc(e.message)+'</div>'}}
+logoutBtn.onclick=()=>{sessionStorage.removeItem("lr_admin_token");location.reload()}
+document.querySelectorAll(".nav[data-page]").forEach(n=>n.onclick=()=>showPage(n.dataset.page))
+clearBtn.onclick=clearForm
+title.addEventListener("input",e=>{if(!slug.dataset.manual)slug.value=slugify(e.target.value)})
+slug.addEventListener("input",e=>e.target.dataset.manual="1")
+jobForm.onsubmit=async e=>{e.preventDefault();try{const payload={};fields.forEach(f=>{const el=document.getElementById(f);let v=el.value.trim();if(["total_posts","minimum_age","maximum_age"].includes(f))v=v===""?null:Number(v);if(["application_start","application_end","fee_last_date","correction_date"].includes(f)&&v==="")v=null;if(f==="vacancy_details"){try{v=v?JSON.parse(v):[]}catch{throw new Error("Vacancy Details JSON is invalid")}}payload[f]=v});const id=jobId.value;await api("/api/jobs"+(id?"?id="+encodeURIComponent(id):""),{method:id?"PUT":"POST",body:JSON.stringify(payload)});await loadJobs();clearForm();showPage("jobs")}catch(err){formMsg.innerHTML='<div class="notice error">'+esc(err.message)+'</div>'}}
+if(token)showApp();
+</script>
+</body></html>
