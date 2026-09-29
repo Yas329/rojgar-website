@@ -62,7 +62,9 @@ module.exports = async (req, res) => {
       let query = "jobs?select=*&order=created_at.desc";
 
       if (slug) {
-        query += `&slug=eq.${encodeURIComponent(slug)}&limit=1`;
+        query += `&slug=eq.${encodeURIComponent(slug)}`;
+        if (!isAdmin(req)) query += "&status=eq.Published";
+        query += "&limit=1";
       } else if (admin === "1") {
         if (!isAdmin(req)) return res.status(401).json({ error: "Unauthorized" });
         query += `&limit=${Math.min(Number(limit) || 50, 200)}`;
