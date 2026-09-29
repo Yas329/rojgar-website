@@ -229,119 +229,59 @@ body{
 
 <!-- JOB LIST -->
 
-<div class="jobs-container">
-
-    <div class="job-card">
-        <h2>SSC CGL Recruitment 2026</h2>
-
-        <div class="job-info">
-            <strong>Organization:</strong> Staff Selection Commission
-        </div>
-
-        <div class="job-info">
-            <strong>Total Posts:</strong> 7500+
-        </div>
-
-        <div class="job-info">
-            <strong>Last Date:</strong> 25 June 2026
-        </div>
-
-        <div class="job-info">
-            Apply online for SSC CGL Recruitment 2026.
-        </div>
-
-        <a href="#" class="apply-btn">Apply Online</a>
-    </div>
-
-    <div class="job-card">
-        <h2>Railway Group D Vacancy 2026</h2>
-
-        <div class="job-info">
-            <strong>Organization:</strong> Railway Recruitment Board
-        </div>
-
-        <div class="job-info">
-            <strong>Total Posts:</strong> 12000+
-        </div>
-
-        <div class="job-info">
-            <strong>Last Date:</strong> 10 July 2026
-        </div>
-
-        <div class="job-info">
-            Railway Group D online application started.
-        </div>
-
-        <a href="#" class="apply-btn">Apply Online</a>
-    </div>
-
-    <div class="job-card">
-        <h2>UP Police Constable Recruitment 2026</h2>
-
-        <div class="job-info">
-            <strong>Organization:</strong> UPPRPB
-        </div>
-
-        <div class="job-info">
-            <strong>Total Posts:</strong> 35000+
-        </div>
-
-        <div class="job-info">
-            <strong>Last Date:</strong> 18 July 2026
-        </div>
-
-        <div class="job-info">
-            UP Police Constable notification released.
-        </div>
-
-        <a href="#" class="apply-btn">Apply Online</a>
-    </div>
-
-    <div class="job-card">
-        <h2>IBPS Clerk Recruitment 2026</h2>
-
-        <div class="job-info">
-            <strong>Organization:</strong> IBPS
-        </div>
-
-        <div class="job-info">
-            <strong>Total Posts:</strong> 4500+
-        </div>
-
-        <div class="job-info">
-            <strong>Last Date:</strong> 05 July 2026
-        </div>
-
-        <div class="job-info">
-            IBPS Clerk online form available now.
-        </div>
-
-        <a href="#" class="apply-btn">Apply Online</a>
-    </div>
-
-    <div class="job-card">
-        <h2>UPSC Civil Services Recruitment 2026</h2>
-
-        <div class="job-info">
-            <strong>Organization:</strong> UPSC
-        </div>
-
-        <div class="job-info">
-            <strong>Total Posts:</strong> 1200+
-        </div>
-
-        <div class="job-info">
-            <strong>Last Date:</strong> 15 June 2026
-        </div>
-
-        <div class="job-info">
-            UPSC Civil Services Examination application started.
-        </div>
-
-        <a href="#" class="apply-btn">Apply Online</a>
-    </div>
-
+<div class="jobs-container" id="jobsContainer">
+  <p id="jobsStatus" style="text-align:center;color:#64748b;">Loading latest jobs...</p>
 </div>
+
+<script>
+let latestJobData = [];
+const escapeHtml = (s) => String(s ?? "").replace(/[&<>"']/g, m => ({
+  "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+}[m]));
+
+function renderLatestJobs(list){
+  const container = document.getElementById("jobsContainer");
+  if(!list.length){
+    container.innerHTML = '<p style="text-align:center;color:#64748b;">No published jobs yet.</p>';
+    return;
+  }
+  container.innerHTML = list.map(job => `
+    <div class="job-card">
+      <h2>${escapeHtml(job.title)}</h2>
+      <div class="job-info"><strong>Organization:</strong> ${escapeHtml(job.department || "-")}</div>
+      <div class="job-info"><strong>Total Posts:</strong> ${escapeHtml(job.total_posts ?? "-")}</div>
+      <div class="job-info"><strong>Last Date:</strong> ${escapeHtml(job.application_end || "-")}</div>
+      <div class="job-info">${escapeHtml(job.qualification || "")}</div>
+      <a href="/jobs/${encodeURIComponent(job.slug)}" class="apply-btn">View Full Details</a>
+    </div>
+  `).join("");
+}
+
+fetch("/api/jobs?limit=100")
+  .then(r => {
+    if(!r.ok) throw new Error("Unable to load jobs");
+    return r.json();
+  })
+  .then(data => {
+    latestJobData = data || [];
+    renderLatestJobs(latestJobData);
+  })
+  .catch(err => {
+    document.getElementById("jobsContainer").innerHTML =
+      '<p style="text-align:center;color:#b91c1c;">' + escapeHtml(err.message) + '</p>';
+  });
+
+const searchInput = document.querySelector(".search-box input");
+if(searchInput){
+  searchInput.addEventListener("input", e => {
+    const q = e.target.value.toLowerCase();
+    renderLatestJobs(latestJobData.filter(job =>
+      [job.title, job.department, job.category, job.qualification]
+        .join(" ").toLowerCase().includes(q)
+    ));
+  });
+}
+</script>
 
 <!-- FOOTER -->
 
