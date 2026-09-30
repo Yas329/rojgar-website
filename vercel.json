@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/jobs/:slug", "destination": "/job.html?slug=:slug" }
+  ]
+}

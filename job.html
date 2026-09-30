@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Government Job | LatestRojgar</title>
+<meta name="description" content="Latest government job details on LatestRojgar.in">
+<style>
+body{margin:0;font-family:Arial,sans-serif;background:#f4f7fb;color:#1e293b}
+.head{background:#0d47a1;color:#fff;padding:24px;text-align:center}
+.nav{background:#fff;padding:14px;text-align:center;box-shadow:0 2px 8px #0001}
+.nav a{margin:0 10px;color:#0d47a1;text-decoration:none;font-weight:700}
+.wrap{width:92%;max-width:1000px;margin:25px auto}
+.card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 5px 18px #0001;margin-bottom:18px}
+.title{color:#0d47a1}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.row{padding:10px;background:#f8fafc;border-radius:8px}
+.section h2{color:#0d47a1;border-bottom:2px solid #e2e8f0;padding-bottom:8px}
+.buttons{display:flex;gap:10px;flex-wrap:wrap}
+.btn{background:#0d47a1;color:#fff;text-decoration:none;padding:11px 16px;border-radius:8px;font-weight:700}
+.muted{color:#64748b}.error{color:#b91c1c}
+@media(max-width:650px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="head"><h1>LatestRojgar.in</h1><p>Government Job Details</p></div>
+<div class="nav"><a href="/">Home</a><a href="/latest-jobs.html">Latest Jobs</a><a href="/results.html">Results</a></div>
+<main class="wrap"><div id="content" class="card"><p class="muted">Loading job details...</p></div></main>
+<script>
+const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
+function row(k,v){return v!==null&&v!==undefined&&v!==""?`<div class="row"><strong>${esc(k)}:</strong> ${esc(v)}</div>`:""}
+(async()=>{
+  const slug=new URLSearchParams(location.search).get("slug")||location.pathname.split("/").filter(Boolean).pop();
+  try{
+    const r=await fetch("/api/jobs?slug="+encodeURIComponent(slug));
+    if(!r.ok)throw new Error("Could not load job");
+    const j=await r.json();
+    if(!j){document.getElementById("content").innerHTML='<p class="error">Job not found.</p>';return}
+    document.title=(j.seo_title||j.title)+" | LatestRojgar";
+    if(j.meta_description)document.querySelector('meta[name="description"]').content=j.meta_description;
+    document.getElementById("content").innerHTML=`
+      <h1 class="title">${esc(j.title)}</h1>
+      <p class="muted">${esc(j.department||"")}</p>
+      <div class="grid">
+        ${row("Post Name",j.post_name)}
+        ${row("Advertisement No.",j.advertisement_number)}
+        ${row("Total Posts",j.total_posts)}
+        ${row("Category",j.category)}
+        ${row("Location",j.location)}
+        ${row("Application Start",j.application_start)}
+        ${row("Last Date",j.application_end)}
+        ${row("Exam Date",j.exam_date)}
+      </div>
+      <div class="section"><h2>Application Fee</h2><div class="grid">
+        ${row("General",j.general_fee)}${row("OBC / EWS",j.obc_ews_fee)}
+        ${row("SC / ST",j.sc_st_fee)}${row("Female",j.female_fee)}
+        ${row("Payment Method",j.payment_method)}
+      </div></div>
+      <div class="section"><h2>Age Limit</h2><div class="grid">
+        ${row("Minimum Age",j.minimum_age)}${row("Maximum Age",j.maximum_age)}
+      </div><p>${esc(j.age_relaxation||"")}</p></div>
+      <div class="section"><h2>Eligibility</h2>
+        <p><strong>Qualification:</strong> ${esc(j.qualification||"-")}</p>
+        <p>${esc(j.experience||"")}</p><p>${esc(j.other_conditions||"")}</p>
+      </div>
+      <div class="section"><h2>Full Details</h2><div style="white-space:pre-wrap">${esc(j.description||"")}</div></div>
+      <div class="section"><h2>Important Links</h2><div class="buttons">
+        ${j.apply_url?`<a class="btn" href="${esc(j.apply_url)}" target="_blank" rel="noopener">Apply Online</a>`:""}
+        ${j.notification_url?`<a class="btn" href="${esc(j.notification_url)}" target="_blank" rel="noopener">Notification</a>`:""}
+        ${j.official_url?`<a class="btn" href="${esc(j.official_url)}" target="_blank" rel="noopener">Official Website</a>`:""}
+      </div></div>`;
+  }catch(e){
+    document.getElementById("content").innerHTML='<p class="error">'+esc(e.message)+'</p>';
+  }
+})();
+</script>
+</body>
+</html>
