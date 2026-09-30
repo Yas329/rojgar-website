@@ -5,72 +5,236 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Government Job | LatestRojgar</title>
 <meta name="description" content="Latest government job details on LatestRojgar.in">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-body{margin:0;font-family:Arial,sans-serif;background:#f4f7fb;color:#1e293b}
-.head{background:#0d47a1;color:#fff;padding:24px;text-align:center}
-.nav{background:#fff;padding:14px;text-align:center;box-shadow:0 2px 8px #0001}
-.nav a{margin:0 10px;color:#0d47a1;text-decoration:none;font-weight:700}
-.wrap{width:92%;max-width:1000px;margin:25px auto}
-.card{background:#fff;border-radius:14px;padding:24px;box-shadow:0 5px 18px #0001;margin-bottom:18px}
-.title{color:#0d47a1}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.row{padding:10px;background:#f8fafc;border-radius:8px}
-.section h2{color:#0d47a1;border-bottom:2px solid #e2e8f0;padding-bottom:8px}
-.buttons{display:flex;gap:10px;flex-wrap:wrap}
-.btn{background:#0d47a1;color:#fff;text-decoration:none;padding:11px 16px;border-radius:8px;font-weight:700}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:#f3f6fb;color:#222;line-height:1.8;font-size:16px}
+a{color:#004aad}
+.topbar{background:linear-gradient(135deg,#003d99,#0066ff);color:#fff;padding:28px 20px;text-align:center}
+.topbar h1{font-size:34px;font-weight:800}
+.topbar p{opacity:.95}
+.nav{background:#fff;padding:14px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,.08);position:sticky;top:0;z-index:20}
+.nav a{margin:0 12px;text-decoration:none;font-weight:700;color:#004aad}
+.container{width:95%;max-width:1300px;margin:auto;padding:25px 0;display:flex;gap:25px;align-items:flex-start}
+.main-content{flex:3;min-width:0}
+.sidebar{flex:1}
+.breadcrumb{margin-bottom:15px;font-size:14px}
+.hero{background:linear-gradient(135deg,#003d99,#0066ff);padding:42px;border-radius:22px;color:white;margin-bottom:25px;box-shadow:0 10px 25px rgba(0,0,0,.12)}
+.hero h1{font-size:40px;line-height:1.4;margin-bottom:12px;font-weight:800}
+.hero p{font-size:18px}
+.badge{display:inline-block;background:#ffcc00;color:#111;padding:10px 20px;border-radius:50px;font-weight:700;margin-top:22px;font-size:14px}
+.short-desc{background:#fff4d6;padding:22px;border-left:6px solid #ff9800;border-radius:14px;font-size:17px;margin-bottom:25px;box-shadow:0 4px 12px rgba(0,0,0,.05)}
+.quick-info{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:25px}
+.info-card{background:white;padding:20px;border-radius:16px;box-shadow:0 5px 18px rgba(0,0,0,.08);border-left:5px solid #004aad}
+.info-card h3{color:#004aad;margin-bottom:8px;font-size:18px}
+.info-card p{font-size:17px;font-weight:700}
+.section{background:white;padding:28px;border-radius:18px;margin-bottom:25px;box-shadow:0 5px 18px rgba(0,0,0,.08)}
+.section-title{font-size:28px;color:#004aad;margin-bottom:20px;padding-bottom:10px;border-bottom:3px solid #004aad;font-weight:800}
+table{width:100%;border-collapse:collapse;margin-top:10px;border-radius:12px;overflow:hidden}
+th{background:#004aad;color:white;padding:15px;font-size:17px;text-align:left}
+td{padding:15px;border:1px solid #e2e8f0;vertical-align:top}
+tr:nth-child(even){background:#f8fbff}
+.highlight{background:#fff4d6;padding:18px;border-left:5px solid #ff9800;border-radius:12px;margin-top:18px}
+.highlight-red{color:#e60000;font-weight:700}.highlight-green{color:#008000;font-weight:700}.highlight-blue{color:#004aad;font-weight:700}.highlight-orange{color:#ff6600;font-weight:700}
+.link-box{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-top:15px}
+.link-btn{display:block;background:#004aad;color:#fff;text-align:center;padding:15px;border-radius:12px;text-decoration:none;font-weight:700;transition:.25s}
+.link-btn:hover{background:#002f73;transform:translateY(-2px)}
+.sidebar-box{background:white;padding:22px;border-radius:18px;margin-bottom:25px;box-shadow:0 5px 18px rgba(0,0,0,.08)}
+.sidebar-box h3{background:#004aad;color:white;padding:13px;border-radius:10px;text-align:center;margin-bottom:16px;font-size:20px}
+.sidebar-box ul{list-style:none}
+.sidebar-box li{padding:10px 0;border-bottom:1px solid #e5e7eb}
+.sidebar-box li:last-child{border-bottom:none}
+.sidebar-box a{text-decoration:none;font-weight:600}
 .muted{color:#64748b}.error{color:#b91c1c}
-@media(max-width:650px){.grid{grid-template-columns:1fr}}
+.footer{background:#111827;color:white;margin-top:50px;padding-top:40px}
+.footer-container{width:95%;max-width:1300px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:30px;padding-bottom:35px}
+.footer h2,.footer h3{color:#00aeff;margin-bottom:12px}
+.footer p,.footer a{color:#d1d5db;text-decoration:none}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);text-align:center;padding:20px}
+.prewrap{white-space:pre-wrap}
+@media(max-width:1000px){.container{flex-direction:column}.sidebar{width:100%}.quick-info{grid-template-columns:1fr 1fr}}
+@media(max-width:650px){.hero{padding:26px}.hero h1{font-size:27px}.section{padding:20px}.section-title{font-size:23px}.quick-info{grid-template-columns:1fr}th,td{padding:11px;font-size:14px}.nav a{display:inline-block;margin:4px 7px}}
 </style>
 </head>
 <body>
-<div class="head"><h1>LatestRojgar.in</h1><p>Government Job Details</p></div>
-<div class="nav"><a href="/">Home</a><a href="/latest-jobs.html">Latest Jobs</a><a href="/results.html">Results</a></div>
-<main class="wrap"><div id="content" class="card"><p class="muted">Loading job details...</p></div></main>
+<header class="topbar"><h1>LatestRojgar.in</h1><p>Latest Government Job Details</p></header>
+<nav class="nav"><a href="/">Home</a><a href="/latest-jobs.html">Latest Jobs</a><a href="/results.html">Results</a><a href="/admit-card.html">Admit Card</a><a href="/answer-key.html">Answer Key</a></nav>
+
+<div class="container">
+<main class="main-content">
+<div class="breadcrumb"><a href="/">Home</a> » <a href="/latest-jobs.html">Latest Jobs</a> » <span id="crumb">Job Details</span></div>
+<div id="content"><p class="muted">Loading job details...</p></div>
+</main>
+
+<aside class="sidebar">
+<div class="sidebar-box">
+<h3>🔥 Latest Jobs</h3>
+<ul id="sideJobs"><li>Loading...</li></ul>
+</div>
+<div class="sidebar-box">
+<h3>📌 Important Quick Links</h3>
+<ul>
+<li><a href="/latest-jobs.html">📢 Latest Jobs</a></li>
+<li><a href="/results.html">🏆 Results</a></li>
+<li><a href="/answer-key.html">📝 Answer Key</a></li>
+<li><a href="/admit-card.html">🎫 Admit Card</a></li>
+<li><a href="/sarkari-yojana.html">🏛 Sarkari Yojana</a></li>
+</ul>
+</div>
+<div class="sidebar-box">
+<h3>📲 Follow LatestRojgar</h3>
+<p class="muted">Add your Telegram, WhatsApp, Instagram, Facebook and YouTube links here later.</p>
+</div>
+</aside>
+</div>
+
+<footer class="footer">
+<div class="footer-container">
+<div><h2>LatestRojgar.in</h2><p>Latest Government Jobs, Result, Admit Card, Answer Key and Sarkari Yojana Updates.</p></div>
+<div><h3>Important Links</h3><p><a href="/">Home</a><br><a href="/latest-jobs.html">Latest Jobs</a><br><a href="/results.html">Results</a><br><a href="/admit-card.html">Admit Card</a></p></div>
+<div><h3>Connect With Us</h3><p>📧 support@latestrojgar.in<br>🌐 www.LatestRojgar.in</p></div>
+</div>
+<div class="footer-bottom">© 2026 LatestRojgar.in | All Rights Reserved</div>
+</footer>
+
 <script>
 const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
-function row(k,v){return v!==null&&v!==undefined&&v!==""?`<div class="row"><strong>${esc(k)}:</strong> ${esc(v)}</div>`:""}
+const fmtDate=v=>{
+  if(!v)return "Not Announced";
+  const d=new Date(v+"T00:00:00");
+  return isNaN(d)?esc(v):d.toLocaleDateString("en-IN",{day:"2-digit",month:"short",year:"numeric"});
+};
+const money=v=>v===null||v===undefined||v===""?"Not Mentioned":"₹"+esc(v);
+function rows(items){return items.filter(x=>x[1]!==null&&x[1]!==undefined&&x[1]!=="").map(x=>`<tr><td><strong>${esc(x[0])}</strong></td><td>${esc(x[1])}</td></tr>`).join("")}
+function linkBtn(url,label,icon){return url?`<a class="link-btn" href="${esc(url)}" target="_blank" rel="noopener">${icon} ${label}</a>`:""}
+function vacancyHtml(v){
+  if(!v)return "";
+  let data=v;
+  if(typeof v==="string"){try{data=JSON.parse(v)}catch{return `<div class="prewrap">${esc(v)}</div>`}}
+  if(Array.isArray(data)&&data.length){
+    const keys=[...new Set(data.flatMap(o=>Object.keys(o||{})))];
+    return `<table><tr>${keys.map(k=>`<th>${esc(k)}</th>`).join("")}</tr>${data.map(o=>`<tr>${keys.map(k=>`<td>${esc(o?.[k]??"")}</td>`).join("")}</tr>`).join("")}</table>`;
+  }
+  if(data&&typeof data==="object"){
+    return `<table>${Object.entries(data).map(([k,val])=>`<tr><td><strong>${esc(k)}</strong></td><td>${esc(typeof val==="object"?JSON.stringify(val):val)}</td></tr>`).join("")}</table>`;
+  }
+  return "";
+}
+async function loadSidebar(){
+  try{
+    const r=await fetch("/api/jobs?limit=6",{cache:"no-store"});
+    const jobs=await r.json();
+    document.getElementById("sideJobs").innerHTML=Array.isArray(jobs)&&jobs.length?jobs.map(j=>`<li><a href="/jobs/${encodeURIComponent(j.slug)}">${esc(j.title)}</a></li>`).join(""):"<li>No jobs available</li>";
+  }catch{document.getElementById("sideJobs").innerHTML='<li><a href="/latest-jobs.html">View Latest Jobs</a></li>'}
+}
 (async()=>{
+  loadSidebar();
   const slug=new URLSearchParams(location.search).get("slug")||location.pathname.split("/").filter(Boolean).pop();
   try{
-    const r=await fetch("/api/jobs?slug="+encodeURIComponent(slug));
+    const r=await fetch("/api/jobs?slug="+encodeURIComponent(slug),{cache:"no-store"});
     if(!r.ok)throw new Error("Could not load job");
     const j=await r.json();
-    if(!j){document.getElementById("content").innerHTML='<p class="error">Job not found.</p>';return}
+    if(!j){document.getElementById("content").innerHTML='<div class="section"><p class="error">Job not found.</p></div>';return}
     document.title=(j.seo_title||j.title)+" | LatestRojgar";
     if(j.meta_description)document.querySelector('meta[name="description"]').content=j.meta_description;
+    document.getElementById("crumb").textContent=j.title||"Job Details";
+
+    const intro=j.description?esc(j.description).slice(0,420):`${esc(j.department||"Recruiting organization")} has released recruitment details for ${esc(j.total_posts||"various")} posts. Check important dates, eligibility, fees, age limit and official links below.`;
+
+    const dateRows=[
+      ["Application Start",fmtDate(j.application_start)],
+      ["Last Date Apply Online",fmtDate(j.application_end)],
+      ["Fee Last Date",fmtDate(j.fee_last_date)],
+      ["Correction Date",fmtDate(j.correction_date)],
+      ["Exam Date",fmtDate(j.exam_date)],
+      ["Admit Card Date",fmtDate(j.admit_card_date)],
+      ["Result Date",fmtDate(j.result_date)]
+    ];
+
+    const feeRows=[
+      ["General",money(j.general_fee)],
+      ["OBC / EWS",money(j.obc_ews_fee)],
+      ["SC / ST",money(j.sc_st_fee)],
+      ["Female",money(j.female_fee)],
+      ["Payment Method",j.payment_method||"Not Mentioned"]
+    ];
+
     document.getElementById("content").innerHTML=`
-      <h1 class="title">${esc(j.title)}</h1>
-      <p class="muted">${esc(j.department||"")}</p>
-      <div class="grid">
-        ${row("Post Name",j.post_name)}
-        ${row("Advertisement No.",j.advertisement_number)}
-        ${row("Total Posts",j.total_posts)}
-        ${row("Category",j.category)}
-        ${row("Location",j.location)}
-        ${row("Application Start",j.application_start)}
-        ${row("Last Date",j.application_end)}
-        ${row("Exam Date",j.exam_date)}
-      </div>
-      <div class="section"><h2>Application Fee</h2><div class="grid">
-        ${row("General",j.general_fee)}${row("OBC / EWS",j.obc_ews_fee)}
-        ${row("SC / ST",j.sc_st_fee)}${row("Female",j.female_fee)}
-        ${row("Payment Method",j.payment_method)}
-      </div></div>
-      <div class="section"><h2>Age Limit</h2><div class="grid">
-        ${row("Minimum Age",j.minimum_age)}${row("Maximum Age",j.maximum_age)}
-      </div><p>${esc(j.age_relaxation||"")}</p></div>
-      <div class="section"><h2>Eligibility</h2>
-        <p><strong>Qualification:</strong> ${esc(j.qualification||"-")}</p>
-        <p>${esc(j.experience||"")}</p><p>${esc(j.other_conditions||"")}</p>
-      </div>
-      <div class="section"><h2>Full Details</h2><div style="white-space:pre-wrap">${esc(j.description||"")}</div></div>
-      <div class="section"><h2>Important Links</h2><div class="buttons">
-        ${j.apply_url?`<a class="btn" href="${esc(j.apply_url)}" target="_blank" rel="noopener">Apply Online</a>`:""}
-        ${j.notification_url?`<a class="btn" href="${esc(j.notification_url)}" target="_blank" rel="noopener">Notification</a>`:""}
-        ${j.official_url?`<a class="btn" href="${esc(j.official_url)}" target="_blank" rel="noopener">Official Website</a>`:""}
-      </div></div>`;
+      <section class="hero">
+        <h1>${esc(j.title)}</h1>
+        <p>${esc(j.department||"")}${j.total_posts?` has announced <span class="highlight-orange">${esc(j.total_posts)} posts</span>.`:""}</p>
+        <div class="badge">🔥 Latest Government Job Update</div>
+      </section>
+
+      <section class="short-desc"><b class="highlight-green">Short Description:</b> ${intro}</section>
+
+      <section class="quick-info">
+        <div class="info-card"><h3>📅 Start Date</h3><p class="highlight-blue">${fmtDate(j.application_start)}</p></div>
+        <div class="info-card"><h3>⏰ Last Date</h3><p class="highlight-red">${fmtDate(j.application_end)}</p></div>
+        <div class="info-card"><h3>📋 Total Vacancy</h3><p class="highlight-orange">${esc(j.total_posts||"Not Mentioned")}</p></div>
+        <div class="info-card"><h3>📍 Location</h3><p class="highlight-green">${esc(j.location||"India")}</p></div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Recruitment Overview</h2>
+        <table>
+          ${rows([
+            ["Post Name",j.post_name],
+            ["Department",j.department],
+            ["Advertisement No.",j.advertisement_number],
+            ["Category",j.category],
+            ["Total Posts",j.total_posts],
+            ["Location",j.location]
+          ])}
+        </table>
+      </section>
+
+      <section class="section" id="dates">
+        <h2 class="section-title">Important Dates</h2>
+        <table><tr><th>Event</th><th>Date</th></tr>${dateRows.map(x=>`<tr><td>${esc(x[0])}</td><td>${x[1]}</td></tr>`).join("")}</table>
+      </section>
+
+      <section class="section" id="fees">
+        <h2 class="section-title">Application Fees</h2>
+        <table><tr><th>Category</th><th>Fee / Details</th></tr>${feeRows.map(x=>`<tr><td>${esc(x[0])}</td><td>${x[1]}</td></tr>`).join("")}</table>
+      </section>
+
+      <section class="section" id="age">
+        <h2 class="section-title">Age Limit</h2>
+        <table><tr><th>Criteria</th><th>Age</th></tr>
+          <tr><td>Minimum Age</td><td>${esc(j.minimum_age||"Not Mentioned")}</td></tr>
+          <tr><td>Maximum Age</td><td>${esc(j.maximum_age||"Not Mentioned")}</td></tr>
+        </table>
+        ${j.age_relaxation?`<div class="highlight"><b>Age Relaxation:</b> ${esc(j.age_relaxation)}</div>`:""}
+      </section>
+
+      ${j.vacancy_details?`<section class="section" id="vacancy"><h2 class="section-title">Vacancy Details</h2>${vacancyHtml(j.vacancy_details)}</section>`:""}
+
+      <section class="section" id="eligibility">
+        <h2 class="section-title">Eligibility Details</h2>
+        <p><strong>Qualification:</strong> ${esc(j.qualification||"Not Mentioned")}</p>
+        ${j.experience?`<p style="margin-top:12px"><strong>Experience:</strong> ${esc(j.experience)}</p>`:""}
+        ${j.other_conditions?`<div class="highlight prewrap">${esc(j.other_conditions)}</div>`:""}
+      </section>
+
+      ${j.description?`<section class="section"><h2 class="section-title">Full Details</h2><div class="prewrap">${esc(j.description)}</div></section>`:""}
+
+      <section class="section">
+        <h2 class="section-title">Important Links</h2>
+        <div class="link-box">
+          ${linkBtn(j.apply_url,"Apply Online","🚀")}
+          ${linkBtn(j.notification_url,"Official Notification","📄")}
+          ${linkBtn(j.official_url,"Official Website","🌐")}
+          ${linkBtn(j.admit_card_url,"Admit Card","🎫")}
+          ${linkBtn(j.result_url,"Result","🏆")}
+          ${linkBtn(j.answer_key_url,"Answer Key","📝")}
+        </div>
+      </section>
+    `;
   }catch(e){
-    document.getElementById("content").innerHTML='<p class="error">'+esc(e.message)+'</p>';
+    document.getElementById("content").innerHTML='<section class="section"><p class="error">'+esc(e.message)+'</p></section>';
   }
 })();
 </script>
