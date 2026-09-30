@@ -735,107 +735,7 @@ View More
 <h2>Latest Jobs</h2>
 
 <ul id="latestJobs">
-
-<li>
-
-<a href="rrb-alp-recruitment-2026.html">
-RRB ALP Recruitment 2026
-</a>
-
-<div class="job-date">
-
-<span class="start-date">
-Start Date: 15 May 2026
-</span>
-
-<span class="last-date">
-Last Date: 14 june 2026
-</span>
-
-</div>
-
-</li>
-
-<li>
-
-<a href="UPSSSC-Assistant-recruitment-2026.html">
-UPSSSC Technical Assistant Group-C Recruitment 2026 Apply Now 
-</a>
-
-<div class="job-date">
-
-<span class="start-date">
-Start Date: 22 May 2026
-</span>
-
-<span class="last-date">
-Last Date: 11 June 2026
-</span>
-
-</div>
-
-</li>
-
-<li>
-
-<a href="#">
-MPESB Hospital Assistant Recruitment 2026
-</a>
-
-<div class="job-date">
-
-<span class="start-date">
-Start Date: 12 May 2026
-</span>
-
-<span class="last-date">
-Last Date: 28 May 2026
-</span>
-
-</div>
-
-</li>
-
-<li class="last-date">
-
-<a href="#">
-SSC Selection Post 2026
-</a>
-
-<div class="job-date">
-
-<span class="start-date">
-Start Date: 08 May 2026
-</span>
-
-<span class="last-date">
-Last Date: 25 May 2026
-</span>
-
-</div>
-
-</li>
-
-<li class="hidden">
-
-<a href="#">
-RBI Grade B 2026
-</a>
-
-<div class="job-date">
-
-<span class="start-date">
-Start Date: 20 May 2026
-</span>
-
-<span class="last-date">
-Last Date: 15 June 2026
-</span>
-
-</div>
-
-</li>
-
+<li>Loading latest jobs...</li>
 </ul>
 
 <div class="view-more">
@@ -1258,6 +1158,57 @@ Latest Government Jobs, Result, Admit Card, Answer Key and Sarkari Yojana Update
 <!-- JAVASCRIPT -->
 
 <script>
+
+async function loadHomepageJobs(){
+  const list = document.getElementById("latestJobs");
+  if (!list) return;
+
+  try {
+    const response = await fetch("/api/jobs?limit=8", { cache: "no-store" });
+    if (!response.ok) throw new Error("Unable to load jobs");
+
+    const jobs = await response.json();
+
+    if (!Array.isArray(jobs) || jobs.length === 0) {
+      list.innerHTML = "<li>No published jobs available right now.</li>";
+      return;
+    }
+
+    list.innerHTML = jobs.map((job, index) => {
+      const startDate = job.application_start
+        ? new Date(job.application_start + "T00:00:00").toLocaleDateString("en-IN", { day: "2-digit", month: "short", year: "numeric" })
+        : "Not announced";
+
+      const lastDate = job.application_end
+        ? new Date(job.application_end + "T00:00:00").toLocaleDateString("en-IN", { day: "2-digit", month: "short", year: "numeric" })
+        : "Not announced";
+
+      return `
+        <li${index >= 4 ? ' class="hidden"' : ''}>
+          <a href="/jobs/${encodeURIComponent(job.slug)}">${escapeHtml(job.title || "Government Job")}</a>
+          <div class="job-date">
+            <span class="start-date">Start Date: ${startDate}</span>
+            <span class="last-date">Last Date: ${lastDate}</span>
+          </div>
+        </li>
+      `;
+    }).join("");
+  } catch (error) {
+    console.error(error);
+    list.innerHTML = '<li><a href="latest-jobs.html">View latest government jobs</a></li>';
+  }
+}
+
+function escapeHtml(value){
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+document.addEventListener("DOMContentLoaded", loadHomepageJobs);
 
 function searchFunction(){
 
